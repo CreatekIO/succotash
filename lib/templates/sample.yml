@@ -1,0 +1,8 @@
+# list file names that needs to be included in the order required
+# EG
+# :sample_seed_files:
+#   - test_file.rb
+#   - demo_seed.rb
+
+:sample_seed_files:
+
