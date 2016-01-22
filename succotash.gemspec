@@ -7,10 +7,10 @@ Gem::Specification.new do |spec|
   spec.name          = "succotash"
   spec.version       = Succotash::VERSION
   spec.authors       = ["Hassan Khalid", "John Cleary"]
-  spec.email         = ["succotash@createk.io"]
+  spec.email         = ["dev@createk.io"]
 
-  spec.summary       = "A simple seeding strategy for your project which helps maintain and separate static and demo data."
-  spec.description   = "A simple seeding strategy for your project which helps maintain and separate static and demo data."
+  spec.summary       = "A simple seeding strategy for your project which helps maintain and separate static and sample data."
+  spec.description   = "A simple seeding strategy for your project which helps maintain and separate static and sample data."
   spec.homepage      = "https://github.com/CreatekIO/succotash"
   spec.license       = "MIT"
 
