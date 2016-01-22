@@ -1,6 +1,6 @@
 # Succotash
 
-A simple seeding strategy for your project which helps maintain and separate **static** and **demo** data.
+A simple seeding strategy for your project which helps maintain and separate **static** and **sample** data.
 
 ## Installation
 
@@ -32,28 +32,28 @@ Create the following files
 # list file names that needs to be included in the order required
 # eg
 # :static_seed_files:
-#   - test_file.rb
-#   - demo_seed.rb
+#   - customer_types.rb
+#   - error_codes.rb
 
 :static_seed_files:
 ```
 
-**db/seeds/demo.yml**
+**db/seeds/sample.yml**
 ```ruby
 # list file names that needs to be included in the order required
 # eg
-# :demo_seed_files:
+# :sample_seed_files:
+#   - user_seed.rb
 #   - test_file.rb
-#   - demo_seed.rb
 
-:demo_seed_files:
+:sample_seed_files:
 
 ```
 
 
 ## Problem
 - Inconsistent approach to seeding data on development, integration and staging causing confusion and a loss of productivity (for example when manually seeded data is lost after a drop+seed)
-- Different approaches may be required for different kinds of seed data (demo seed, look-up table seed)
+- Different approaches may be required for different kinds of seed data (sample seed, look-up table seed)
 - No defined approach to migrating data when structure changes (even more important now that we are live)
 
 These problems cost time for developers as they build local versions of services and each time they move services into integration, staging, acceptance and production.
@@ -63,8 +63,8 @@ These problems cost time for developers as they build local versions of services
 ##### Static Data
 Data that is required by the system in order for the system to function correctly. We should assume that this is run against **production** after every release so it should be **idempotent**. It would typically contain lookup data, but it must not include sample users or example data.
 
-##### Demo Data
-Data that is required to demo the system or demo individual features. Typically this will be run after a db:reset (and after the seed). It should never be run against production and therefore does not have to be idempotent.
+##### Sample Data
+Data that is required to demo the system or individual features. Typically this will be run after a db:reset (and after the seed). It should never be run against production and therefore does not have to be idempotent.
 
 ##### Idempotent
 Doesn’t change anything if you run it more than once, or more formally: ‘denoting an element of a set which is unchanged in value when multiplied or otherwise operated on by itself.’)
@@ -73,7 +73,7 @@ Doesn’t change anything if you run it more than once, or more formally: ‘den
 
 ## Usage
 
-Both static and demo data.
+Both static and sample data.
 ```bash
 $ rake db:seed
 ```
@@ -83,9 +83,9 @@ Static data only.
 $ rake db:seed:static
 ```
 
-Demo data only.
+Sample data only.
 ```bash
-$ rake db:seed:demo
+$ rake db:seed:sample
 ```
 
 `test.rb` file in the `db/seeds/static` directory
@@ -93,9 +93,9 @@ $ rake db:seed:demo
 $ rake db:seed:static:test
 ```
 
-`test.rb` file in the `db/seeds/demo` directory
+`test.rb` file in the `db/seeds/sample` directory
 ```bash
-$ rake db:seed:demo:test
+$ rake db:seed:sample:test
 ```
 
 
