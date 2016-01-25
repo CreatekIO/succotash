@@ -4,7 +4,6 @@ namespace :succotash do
     spec = Gem::Specification.find_by_name 'succotash'
 
     puts "*** Creating seed dirs ***".green
-    system("mkdir -p #{Rails.root}/db/seeds/{static,sample}") unless Dir.exist?("#{Rails.root}/db/seeds")
     system("mkdir -p #{Rails.root}/db/seeds/static") unless Dir.exist?("#{Rails.root}/db/seeds/static")
     system("mkdir -p #{Rails.root}/db/seeds/sample") unless Dir.exist?("#{Rails.root}/db/seeds/sample")
 
